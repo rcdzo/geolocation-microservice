@@ -3,7 +3,7 @@ package com.br.geolocation.application.valueObject
 import io.micronaut.serde.annotation.Serdeable
 
 @Serdeable
-data class Item(
+data class RestaurantItem(
         val id:String,
         val name:String,
         val description:String,
