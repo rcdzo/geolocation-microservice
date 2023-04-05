@@ -17,7 +17,7 @@ class RestaurantService(
         return geoRepository.findByid(id = id)
     }
 
-    override fun findRestaurants(latitue: String, longitude: String): List<Restaurant> {
-        return geoRepository.findAllByLocation(latitude = latitue, longitude = longitude)
+    override fun findRestaurants(latitude: String, longitude: String): List<Restaurant> {
+        return geoRepository.findAllByLocation(latitude = latitude, longitude = longitude)
     }
 }
