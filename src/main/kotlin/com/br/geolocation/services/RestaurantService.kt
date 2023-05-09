@@ -9,11 +9,11 @@ import jakarta.inject.Singleton
 class RestaurantService(
     private val geoRepository: RestaurantRepository,
 ) : RestaurantUseCase {
-    override fun getRestaurant(restaurant: Restaurant): Restaurant {
+    override fun createRestaurant(restaurant: Restaurant): Restaurant {
         return geoRepository.save(restaurant)
     }
 
-    override fun findRestaurant(id: String): Restaurant? {
+    override fun getRestaurant(id: String): Restaurant? {
         return geoRepository.findByid(id = id)
     }
 

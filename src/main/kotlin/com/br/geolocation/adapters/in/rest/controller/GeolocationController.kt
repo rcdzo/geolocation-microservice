@@ -1,5 +1,7 @@
 package com.br.geolocation.adapters.`in`.rest.controller
 
+import com.br.geolocation.adapters.`in`.rest.mapper.mapToRestaurant
+import com.br.geolocation.adapters.`in`.rest.models.request.RestaurantRequest
 import com.br.geolocation.application.entities.Restaurant
 import com.br.geolocation.ports.`in`.RestaurantUseCase
 import io.micronaut.http.annotation.*
@@ -10,7 +12,7 @@ class GeolocationController(
 ) {
     @Get("/{id}")
     fun getById(id: String): Restaurant? {
-        return geoUseCase.findRestaurant(id = id)
+        return geoUseCase.getRestaurant(id = id)
     }
 
     @Get
@@ -19,7 +21,7 @@ class GeolocationController(
     }
 
     @Post
-    fun create(@Body request: Restaurant): Restaurant {
-        return  geoUseCase.getRestaurant(restaurant = request)
+    fun create(@Body request: RestaurantRequest): Restaurant {
+        return  geoUseCase.createRestaurant(restaurant = request.mapToRestaurant())
     }
 }
